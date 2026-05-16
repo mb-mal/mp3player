@@ -27,6 +27,13 @@ function createWindow() {
   }
 }
 
+app.setAboutPanelOptions({
+  applicationName: 'MP3 Player',
+  applicationVersion: '1.0.0',
+  copyright: 'Malyshev Mikhail\ntg: @tsingular',
+  credits: 'https://github.com/mb-mal/mp3player',
+})
+
 app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {

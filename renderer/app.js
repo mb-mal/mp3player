@@ -75,7 +75,6 @@ class AudioPlayer {
     const theme = THEMES[index]
     document.body.className = ''
     if (theme.id !== 'dark') document.body.classList.add(`theme-${theme.id}`)
-    document.getElementById('btn-theme').textContent = theme.icon
     this.saveState()
     this.log(`Theme: ${theme.name}`, 'info')
   }
