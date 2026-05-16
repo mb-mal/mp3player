@@ -15,6 +15,7 @@
     "productName": "MP3 Player",
     "mac": {
       "category": "public.app-category.music",
+      "icon": "mp3player-icon.png",
       "target": [
         "dmg",
         "zip"
@@ -22,13 +23,15 @@
     },
     "dmg": {
       "title": "MP3 Player",
+      "icon": "mp3player-icon.png",
       "iconSize": 128
     },
     "files": [
       "main.js",
       "preload.js",
       "renderer/**/*",
-      "package.json"
+      "package.json",
+      "mp3player-icon.png"
     ]
   },
   "devDependencies": {
