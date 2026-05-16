@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MP3 Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="titlebar">
+      <div id="titlebar-drag">
+        <span class="logo">♪ MP3 Player</span>
+      </div>
+      <div id="titlebar-actions">
+        <button class="tb-btn" id="btn-theme" title="Switch theme">🎨</button>
+        <button class="tb-btn" id="btn-minimize">─</button>
+        <button class="tb-btn tb-close" id="btn-close">✕</button>
+      </div>
+    </div>
+
+    <div id="visualizer">
+      <canvas id="vis-canvas"></canvas>
+      <div id="vis-mode-indicator">
+        <span id="vis-mode-label">BARS</span>
+      </div>
+    </div>
+
+    <div id="track-info">
+      <div id="track-name-wrap">
+        <div id="track-name">No track selected</div>
+      </div>
+      <div id="track-details"></div>
+      <div id="time-display">
+        <span id="time-current">0:00</span>
+        <span class="time-sep">/</span>
+        <span id="time-total">0:00</span>
+      </div>
+    </div>
+
+    <div id="progress-container">
+      <input type="range" id="seek-slider" min="0" max="100" value="0" />
+    </div>
+
+    <div id="controls">
+      <button class="ctrl-btn" id="btn-prev" title="Previous (←)">⏮</button>
+      <button class="ctrl-btn ctrl-play" id="btn-play" title="Play/Pause (Space)">▶</button>
+      <button class="ctrl-btn" id="btn-stop" title="Stop">⏹</button>
+      <button class="ctrl-btn" id="btn-next" title="Next (→)">⏭</button>
+      <button class="ctrl-btn" id="btn-repeat" title="Repeat">🔂</button>
+      <button class="ctrl-btn" id="btn-shuffle" title="Shuffle">🔀</button>
+    </div>
+
+    <div id="volume-container">
+      <span class="vol-icon" id="vol-icon">🔊</span>
+      <input type="range" id="volume-slider" min="0" max="100" value="80" />
+      <span id="vol-pct">80%</span>
+    </div>
+
+    <div id="playlist-header">
+      <span>Playlist <span id="pl-count"></span></span>
+      <div class="pl-actions">
+        <button class="pl-btn" id="btn-vis-mode" title="Change visualizer">〰</button>
+        <button class="pl-btn" id="btn-pl-save" title="Save playlist">💾</button>
+        <button class="pl-btn" id="btn-pl-load" title="Load playlist">📂</button>
+        <button class="pl-btn" id="btn-add-files" title="Add files (⌘O)">+ Files</button>
+        <button class="pl-btn" id="btn-add-folder" title="Add folder">+ Folder</button>
+        <button class="pl-btn" id="btn-clear" title="Clear playlist">Clear</button>
+      </div>
+    </div>
+
+    <div id="playlist" class="playlist">
+      <div class="pl-empty">Drop MP3 files here or click + to add tracks</div>
+    </div>
+
+    <div id="statusbar">
+      <span id="status-text">Ready</span>
+      <span class="kb-hint" title="Keyboard shortcuts">⌨ Space:Play | ←→:Seek | ↑↓:Vol | N/P:Next/Prev | R:Repeat | S:Shuffle</span>
+      <button id="btn-debug">🐛</button>
+    </div>
+
+    <div id="debug-panel" style="display:none">
+      <div id="debug-log"></div>
+    </div>
+  </div>
+
+  <div id="context-menu" class="ctx-menu" style="display:none"></div>
+
+  <div id="modal-overlay" style="display:none">
+    <div id="modal-box">
+      <div id="modal-title"></div>
+      <div id="modal-body"></div>
+      <div id="modal-actions"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
